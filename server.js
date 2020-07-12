@@ -2,18 +2,14 @@ import express from 'express'
 import bodyParser from 'body-parser'
 
 const app = express()
+const port = 3000
 
 app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-)
+
 app.get('/', function (req, res) {
-  const hello = JSON.stringify('Hello World!')
-  res.send(hello)
+  res.json('Hello World!')
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(port, function () {
+  console.log(`App listening on port ${port}`)
 })
